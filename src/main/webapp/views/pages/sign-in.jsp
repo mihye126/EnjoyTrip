@@ -41,7 +41,7 @@
                                 <label for="email">Your Email</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
-                                    <input type="email" class="form-control" placeholder="example@company.com" id="email" required>
+                                    <input type="email" class="form-control" placeholder="example@company.com" id="email" required >
                                 </div>
                             </div>
                             <!-- End of Form -->
