@@ -64,9 +64,19 @@
                         <h3 class="h5 mb-0">사용자 정보 수정</h3>
                         <form class="form mt-5" autocomplete="off">
                             <div class="mb-4">
+                                <label for="id">사용자 ID</label><br>
+
+                                <input type="text" class="form-control" id="id" name="id" required="" value="${oneUser.id}" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="pass">비밀번호</label><br>
+
+                                <input type="text" class="form-control" id="pass" name="pass" required="" value="${oneUser.pass}" />
+                            </div>
+                            <div class="mb-4">
                                 <label for="InfoName">사용자 이름</label><br>
 
-                                <input type="text" class="form-control" id="InfoName" required="" value="ssafy" />
+                                <input type="text" class="form-control" id="InfoName" required="" value="이름" />
                             </div>
                             <div class="mb-4">
                                 <label for="InfoBirth">생년월일</label>
@@ -90,23 +100,14 @@
                                                     <h2 class="h6 modal-title">정말로 탈퇴하시겠습니까?</h2><button type="button" class="btn-close"
                                                                                                          data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <p>With less than a month to go before the European Union enacts new consumer privacy laws
-                                                        for its citizens, companies around the world are updating their terms of service
-                                                        agreements to comply.</p>
-                                                    <p>The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on
-                                                        May 25 and is meant to ensure a common set of data rights in the European Union. It
-                                                        requires organizations to notify users as soon as possible of high-risk data breaches that
-                                                        could personally affect them.</p>
-                                                </div>
-                                                <div class="modal-footer"><button type="button" class="btn btn-outline-danger">탈퇴</button>
+                                                <div class="modal-footer"><a href="delete.com" type="button" class="btn btn-outline-danger">탈퇴</a>
                                                     <button type="button" class="btn btn-link ms-auto" data-bs-dismiss="modal">아니오</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="./userInfo.html" type="submit" class="btn btn-dark col-md-2" style="float:right">저장</a>
+                                <a href="modifySuccess.com" type="submit" class="btn btn-dark col-md-2" style="float:right">저장</a>
                             </div>
                         </form>
                     </div>

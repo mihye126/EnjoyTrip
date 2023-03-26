@@ -41,7 +41,7 @@
                                 <label for="id">Your ID</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
-                                    <input type="text" class="form-control" placeholder="example" id="id" name="id" value="${cookie.remem.value}" required>
+                                    <input type="text" class="form-control" placeholder="example" id="id" name="id"  required>
                                 </div>
                             </div>
                             <!-- End of Form -->
@@ -51,7 +51,7 @@
                                     <label for="pass">Your Password</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon2"><span class="fas fa-unlock-alt"></span></span>
-                                        <input type="password" placeholder="Password" class="form-control" id="pass" name="pass" value="${cookie.remem.value}" required>
+                                        <input type="password" placeholder="Password" class="form-control" id="pass" name="pass"  required>
                                     </div>
                                 </div>
                                 <c:if test="${!empty msg}">${msg }</c:if>

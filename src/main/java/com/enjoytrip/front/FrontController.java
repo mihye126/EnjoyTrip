@@ -53,6 +53,11 @@ public class FrontController extends HttpServlet {
             ucon.info(request, response);
         }else if(url.equals("/userModify.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
             ucon.modify(request, response);
+        }else if(url.equals("/modifySuccess.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            ucon.success(request, response);
+        }
+        else if(url.equals("/delete.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            ucon.delete(request, response);
         }
     }
 

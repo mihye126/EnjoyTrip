@@ -35,7 +35,7 @@ public class SignUpController {
 
         User user = new User(id, pass);
         int flag = service.register(user);
-        String url = "sign-in.com";//ok
+        String url = "userModify.com";//ok
 
         if (flag==0) {// 회원 가입 실패
             System.out.println("회원 가입 실패");

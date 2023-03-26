@@ -31,7 +31,7 @@ public class SignUpDAOImpl implements SignUpDAO{
                 return 0;
             }
 
-            String q = "INSERT INTO USER VALUES (?, ?, null, null, null, null)";
+            String q = "INSERT INTO USER VALUES (?, ?, null, null, null)";
             PreparedStatement stat2 = con.prepareStatement(q);
             stat2.setString(1, id);
             stat2.setString(2, pass);

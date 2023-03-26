@@ -164,35 +164,36 @@
                 <!-- 상세정보 시작-->
                 <div class="col-8 card border-gray-300 p-0 p-md-4 mb-4">
                     <div class="card-body">
+
                         <h3 class="h5 mb-0">사용자 정보</h3>
                         <form class="form mt-5" autocomplete="off">
                             <div class="mb-4">
-                                <label for="InfoName">사용자 이름</label><br>
+                                <label for="InfoName">사용자 ID</label><br>
 
                                 <a
                                         class="form-control"
                                         id="InfoName"
                                         required=""
-                                > ssafy <a>
+                                > ${oneUser.id}</a>
                             </div>
                             <div class="mb-4">
-                                <label for="InfoBirth">생년월일</label>
+                                <label for="InfoBirth">비번</label>
                                 <a
                                         class="form-control"
                                         id="InfoBirth"
                                         required=""
-                                > 92.08.04 <a>
+                                > ${oneUser.pass} </a>
 
                             </div>
-                            <div class="mb-4">
-                                <label for="InfoOne">한 줄 소개</label>
-                                <a
-                                        class="form-control"
-                                        id="InfoOne"
-                                        required=""
-                                > SSAFY 9기 서울 14반입니다! <a>
+<%--                            <div class="mb-4">--%>
+<%--                                <label for="InfoOne">핸드폰 번호</label>--%>
+<%--                                <a--%>
+<%--                                        class="form-control"--%>
+<%--                                        id="InfoOne"--%>
+<%--                                        required=""--%>
+<%--                                > ${oneUser.num} <a>--%>
 
-                            </div>
+<%--                            </div>--%>
                             <div class="form-group">
                                 <a href="userModify.com" type="submit" class="btn btn-dark" style="float:right" >수정
                                 </a>

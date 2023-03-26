@@ -55,15 +55,20 @@ public class SignInController {
         String pass = request.getParameter("pass");
         String remember = request.getParameter("remember");//checkbox
 
+
         User user = new User(id, pass);
         boolean flag = service.check(user);
-        String url = "index.jsp";//ok
+        String url = "userInfo.com";//ok
 
         if (flag) {// 로그인 성공
             System.out.println("로그인 성공");
             // 세션 처리
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+
+//            Cookie userid = new Cookie("id", id);
+//            userid.setMaxAge(-1);
+//            response.addCookie(userid);
 
             //cookie 처리---------------
             if(remember != null) {//체크박스 체크한 경우

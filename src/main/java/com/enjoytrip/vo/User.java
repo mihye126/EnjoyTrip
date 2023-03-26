@@ -4,9 +4,9 @@ public class User {
     private String id;
     private String pass;
     private String username;
-    private String number;
-    private String address;
+    private String num;
     private String bday;
+
 
     public User() {
     }
@@ -16,12 +16,11 @@ public class User {
         this.pass=pass;
     }
 
-    public User(String id, String pass, String username, String number, String address, String bday) {
+    public User(String id, String pass, String username, String num, String bday) {
         this.id = id;
         this.pass = pass;
         this.username = username;
-        this.number = number;
-        this.address = address;
+        this.num = num;
         this.bday = bday;
     }
 
@@ -50,19 +49,11 @@ public class User {
     }
 
     public String getNumber() {
-        return number;
+        return num;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setNumber(String num) {
+        this.num = num;
     }
 
     public String getBday() {
