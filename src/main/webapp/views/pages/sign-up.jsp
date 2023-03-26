@@ -35,6 +35,13 @@
                             <h1 class="mb-0 h3">Create an account</h1>
                         </div>
                         <form action="register.com">
+                            <div class="form-group mb-4">
+                                <label for="name">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon2"><span class="fas fa-envelope"></span></span>
+                                    <input type="text" class="form-control" placeholder="홍길동" id="name" name="name" required>
+                                </div>
+                            </div>
                             <!-- Form -->
                             <div class="form-group mb-4">
                                 <label for="id">Your ID</label>

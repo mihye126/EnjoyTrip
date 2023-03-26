@@ -76,17 +76,17 @@
                             <div class="mb-4">
                                 <label for="InfoName">사용자 이름</label><br>
 
-                                <input type="text" class="form-control" id="InfoName" required="" value="이름" />
+                                <input type="text" class="form-control" id="InfoName" required="" value="${oneUser.username}" />
                             </div>
-                            <div class="mb-4">
-                                <label for="InfoBirth">생년월일</label>
-                                <input type="text" class="form-control" id="InfoBirth" required="" value="92.08.04" />
+<%--                            <div class="mb-4">--%>
+<%--                                <label for="InfoBirth">생년월일</label>--%>
+<%--                                <input type="text" class="form-control" id="InfoBirth" required="" value="92.08.04" />--%>
 
-                            </div>
-                            <div class="mb-4">
-                                <label for="InfoOne">한 줄 소개</label>
-                                <input type="text" class="form-control" id="InfoOne" required="" value="SSAFY 9기 서울 14반입니다!" />
-                            </div>
+<%--                            </div>--%>
+<%--                            <div class="mb-4">--%>
+<%--                                <label for="InfoOne">한 줄 소개</label>--%>
+<%--                                <input type="text" class="form-control" id="InfoOne" required="" value="SSAFY 9기 서울 14반입니다!" />--%>
+<%--                            </div>--%>
                             <div class="form-group">
                                 <div class="col-md-2" style="float:left">
                                     <div class="d-grid">

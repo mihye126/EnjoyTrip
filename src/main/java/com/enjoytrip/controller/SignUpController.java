@@ -29,11 +29,12 @@ public class SignUpController {
 
 
     public void register(HttpServletRequest request, HttpServletResponse response) {
+        String name=request.getParameter("name");
         String id = request.getParameter("id");
         String pass = request.getParameter("pass");
         String remember = request.getParameter("remember");//checkbox
 
-        User user = new User(id, pass);
+        User user = new User(id, pass, name);
         int flag = service.register(user);
         String url = "userModify.com";//ok
 

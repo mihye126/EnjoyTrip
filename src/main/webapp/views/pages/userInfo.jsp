@@ -122,7 +122,7 @@
                                 />
                             </div>
                             <span class="h5 my-0 my-lg-3 me-3 me-lg-0"
-                            >Hi, SSAFY!</span
+                            >Hi, ${oneUser.id}</span
                             >
                             <a href="#" class="btn btn-gray-300 btn-xs"
                             ><span class="me-2"
@@ -185,15 +185,15 @@
                                 > ${oneUser.pass} </a>
 
                             </div>
-<%--                            <div class="mb-4">--%>
-<%--                                <label for="InfoOne">핸드폰 번호</label>--%>
-<%--                                <a--%>
-<%--                                        class="form-control"--%>
-<%--                                        id="InfoOne"--%>
-<%--                                        required=""--%>
-<%--                                > ${oneUser.num} <a>--%>
+                            <div class="mb-4">
+                                <label for="InfoOne">이름</label>
+                                <a
+                                        class="form-control"
+                                        id="InfoOne"
+                                        required=""
+                                > ${oneUser.username} <a>
 
-<%--                            </div>--%>
+                            </div>
                             <div class="form-group">
                                 <a href="userModify.com" type="submit" class="btn btn-dark" style="float:right" >수정
                                 </a>

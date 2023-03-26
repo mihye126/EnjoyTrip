@@ -20,6 +20,7 @@ public class SignUpDAOImpl implements SignUpDAO{
             Connection con = util.getConnection();//pool에서 한개 빌려옴
             String id= user.getId();
             String pass=user.getPass();
+            String name=user.getUsername();
 
             String checkq = "select id from user where id = ?";
             PreparedStatement stat = con.prepareStatement(checkq);
@@ -31,12 +32,12 @@ public class SignUpDAOImpl implements SignUpDAO{
                 return 0;
             }
 
-            String q = "INSERT INTO USER VALUES (?, ?, null, null, null)";
+            String q = "INSERT INTO USER VALUES (?, ?, ?, null, null)";
             PreparedStatement stat2 = con.prepareStatement(q);
             stat2.setString(1, id);
             stat2.setString(2, pass);
+            stat2.setString(3, name);
 
-            System.out.println(id+" "+pass);
 
             return stat2.executeUpdate();
 
