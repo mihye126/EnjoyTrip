@@ -13,7 +13,8 @@ public class PasswordServiceImpl implements PasswordService{
 
 
     @Override
-    public int modify(User user) {
-        return dao.modify(user);
+    public int modify(String id, String newpass) {
+
+        return dao.modify(id, newpass);
     }
 }

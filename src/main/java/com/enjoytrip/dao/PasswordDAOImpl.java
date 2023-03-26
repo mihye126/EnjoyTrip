@@ -15,21 +15,24 @@ public class PasswordDAOImpl implements PasswordDAO{
     }
 
     @Override
-    public int modify(User user) {
+    public int modify(String id, String newpass) {
         try {
             Connection con = util.getConnection();//pool에서 한개 빌려옴
-            String id= user.getId();
-            String pass=user.getPass();
 
-
-            String q = "UPDATE user set pass= ? WHERE id = ?";
+            String q = "UPDATE user set pw= ? WHERE id = ?";
             PreparedStatement stat = con.prepareStatement(q);
-            stat.setString(1, pass);
+            stat.setString(1, newpass);
             stat.setString(2, id);
 
+            int result=stat.executeUpdate();
+            if(result==1){
+                System.out.println("비밀번호 수정 완료!");
 
-            return stat.executeUpdate();
-
+            }else{
+                System.out.println("비밀번호 수정 실패!");
+                result=0;
+            }
+            return result;
 
         }catch(Exception e) {
             e.printStackTrace();

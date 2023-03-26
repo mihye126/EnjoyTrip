@@ -91,7 +91,7 @@
                         <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Already have an account?
-                                    <a href="./sign-in.html" class="fw-bold text-underline">Login here</a>
+                                    <a href="sign-in.com" class="fw-bold text-underline">Login here</a>
                                 </span>
                         </div>
                     </div>

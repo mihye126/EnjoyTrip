@@ -63,7 +63,7 @@
                                             Remember me
                                         </label>
                                     </div>
-                                    <div><a href="./password.jsp" class="small text-right">Lost password?</a></div>
+                                    <div><a href="password.com" class="small text-right">Lost password?</a></div>
                                 </div>
                             </div>
                             <div class="d-grid">

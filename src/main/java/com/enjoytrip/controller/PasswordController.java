@@ -2,6 +2,8 @@ package com.enjoytrip.controller;
 
 import com.enjoytrip.service.PasswordService;
 import com.enjoytrip.service.PasswordServiceImpl;
+import com.enjoytrip.service.SignInService;
+import com.enjoytrip.service.SignInServiceImpl;
 import com.enjoytrip.vo.User;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,7 @@ public class PasswordController {
     PasswordService service;
 
     public PasswordController() {
+
         service=new PasswordServiceImpl();
     }
 
@@ -29,20 +32,23 @@ public class PasswordController {
 
     public void modify(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
-        String pass = request.getParameter("pass");
+        String newpass=request.getParameter("newpass");
         String passConfirm=request.getParameter("passConfirm");
+        System.out.println(id+" "+newpass+" "+passConfirm);
+        int modiflag=0;
 
-        User user = new User(id, pass);
-        int flag=service.modify(user); //비밀번호 올바르게 수정됐는지
+        String url = "sign-in.com";//비밀번호 수정완료시 로그인 창으로 이동
 
-        String url = "sign-in.com";//ok
+        if(newpass.equals(passConfirm)){
+            modiflag=service.modify(id,newpass);
 
-        if (pass==passConfirm) {// 회원 가입 실패
-            System.out.println("비밀번호가 동일합니다.");
+            if (modiflag==1) {
+                System.out.println("비밀번호가 수정 완료. 로그인창으로 이동합니다.");
 
-        }else{
-            System.out.println("비밀번호가 동일하지 않습니다.");
-            url="password.com";
+            }else{
+                System.out.println("비밀번호 수정 실패.");
+                url="password.com";
+            }
         }
 
         try {

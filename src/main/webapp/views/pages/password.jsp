@@ -5,6 +5,8 @@
 
 <%@ include file="/views/components/head.jsp" %>
 
+
+
 <body>
 <%@ include file="/views/components/header.jsp" %>
 <main>
@@ -35,34 +37,23 @@
                             <h1 class="mb-0 h3">비밀번호 수정</h1>
                         </div>
                         <form action="passModify.com" method="post">
+
                             <!-- Form -->
                             <div class="form-group mb-4">
-                                <label for="username">name</label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-name"><span class="fas fa-envelope"></span></span>
-                                    <input type="text" class="form-control" placeholder="사용자 이름" id="username" name="name" required>
-                                </div>
-                            </div>
-                            <!-- Form -->
-                            <div class="form-group mb-4">
-                                <label for="id">Your ID</label>
+                                <label for="id">아이디</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
                                     <input type="text" class="form-control" placeholder="example" id="id" name="id" required>
                                 </div>
-                                <br>
-                                <button id="user_check" value="사용자 확인" style="float:right" onclick="userCheck()" >사용자 확인</button>
-                                <span id="msg"></span><br>
-                                <hr>
                             </div>
                             <!-- End of Form -->
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="password">새 비밀번호</label>
+                                    <label for="newpass">새 비밀번호</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
-                                        <input type="password" placeholder="Password" class="form-control" id="password" name="pass" required disabled>
+                                        <input type="password" placeholder="Password" class="form-control" id="newpass" name="newpass" required>
 
                                     </div>
                                 </div>
@@ -72,7 +63,7 @@
                                     <label for="password_confirm">비밀번호 확인</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span>
-                                        <input type="password" placeholder="Confirm Password" class="form-control" id="password_confirm" name="passConfirm" required disabled>
+                                        <input type="password" placeholder="Confirm Password" class="form-control" id="password_confirm" name="passConfirm" required>
                                     </div>
                                 </div>
                                 <!-- End of Form -->
