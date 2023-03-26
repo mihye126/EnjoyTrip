@@ -40,7 +40,7 @@
                                 <img src="../../assets/img/team/profile-picture-3.jpg"
                                      class="card-img-top rounded-circle border-white" alt="Bonnie Green Portrait" />
                             </div>
-                            <span class="h5 my-0 my-lg-3 me-3 me-lg-0">Hi, SSAFY!</span>
+                            <span class="h5 my-0 my-lg-3 me-3 me-lg-0">Hi, ${oneUser.id} !</span>
                             <a href="#" class="btn btn-gray-300 btn-xs"><span class="me-2"><span
                                     class="fas fa-sign-out-alt"></span></span>Sign Out</a>
                         </div>
@@ -62,7 +62,7 @@
                 <div class="col-8 card border-gray-300 p-0 p-md-4 mb-4">
                     <div class="card-body">
                         <h3 class="h5 mb-0">사용자 정보 수정</h3>
-                        <form class="form mt-5" autocomplete="off">
+                        <form action="modifySuccess.com" method="post" class="form mt-5" autocomplete="off">
                             <div class="mb-4">
                                 <label for="id">사용자 ID</label><br>
 
@@ -76,17 +76,17 @@
                             <div class="mb-4">
                                 <label for="InfoName">사용자 이름</label><br>
 
-                                <input type="text" class="form-control" id="InfoName" required="" value="이름" />
+                                <input type="text" class="form-control" id="InfoName" required="" name="username" value="${oneUser.username}" />
                             </div>
-                            <div class="mb-4">
-                                <label for="InfoBirth">생년월일</label>
-                                <input type="text" class="form-control" id="InfoBirth" required="" value="92.08.04" />
+<%--                            <div class="mb-4">--%>
+<%--                                <label for="InfoBirth">생년월일</label>--%>
+<%--                                <input type="text" class="form-control" id="InfoBirth" required="" value="92.08.04" />--%>
 
-                            </div>
-                            <div class="mb-4">
-                                <label for="InfoOne">한 줄 소개</label>
-                                <input type="text" class="form-control" id="InfoOne" required="" value="SSAFY 9기 서울 14반입니다!" />
-                            </div>
+<%--                            </div>--%>
+<%--                            <div class="mb-4">--%>
+<%--                                <label for="InfoOne">한 줄 소개</label>--%>
+<%--                                <input type="text" class="form-control" id="InfoOne" required="" value="SSAFY 9기 서울 14반입니다!" />--%>
+<%--                            </div>--%>
                             <div class="form-group">
                                 <div class="col-md-2" style="float:left">
                                     <div class="d-grid">
@@ -107,7 +107,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="modifySuccess.com" type="submit" class="btn btn-dark col-md-2" style="float:right">저장</a>
+                                <button type="submit" class="btn btn-dark col-md-2" style="float:right">저장</button>
                             </div>
                         </form>
                     </div>

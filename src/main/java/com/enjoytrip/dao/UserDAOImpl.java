@@ -41,18 +41,17 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public int modifySuccess(User user) {
+    public int modifySuccess(User user, String pid, String ppw, String pname) {
         try {
             Connection con = util.getConnection();//pool에서 한개 빌려옴
             String id= user.getId();
-            String pw=user.getPass();
 
-
-            String q = "UPDATE user SET id = ?, pw = ? WHERE id = ?";
+            String q = "UPDATE user SET id = ?, pw = ?, username= ? WHERE id = ?";
             PreparedStatement stat = con.prepareStatement(q);
-            stat.setString(1, id);
-            stat.setString(2, pw);
-            stat.setString(3, id);
+            stat.setString(1, pid);
+            stat.setString(2, ppw);
+            stat.setString(3, pname);
+            stat.setString(4, id);
 
             return stat.executeUpdate();
 

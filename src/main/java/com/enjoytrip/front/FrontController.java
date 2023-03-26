@@ -37,26 +37,31 @@ public class FrontController extends HttpServlet {
 
         if(url.equals("/sign-in.com")){
             sicon.login(request, response);
-        } else if(url.equals("/logout.com")) {
+        }else if(url.equals("/logout.com")) {
             sicon.logout(request, response);
         }else if(url.equals("/loginProcess.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
             sicon.loginProcess(request, response);
-        }else if(url.equals("/sign-up.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+        }else if(url.equals("/sign-up.com")) {
             sucon.join(request, response);
-        }else if(url.equals("/register.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+        }else if(url.equals("/register.com")) {
             sucon.register(request, response);
-        }else if(url.equals("/password.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+        }else if(url.equals("/password.com")) {
             pwcon.page(request, response);
-        }else if(url.equals("/passModify.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+        }else if(url.equals("/passModify.com")) {
             pwcon.modify(request, response);
-        }else if(url.equals("/userInfo.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+        }else if(url.equals("/userInfo.com")) {
             ucon.info(request, response);
-        }else if(url.equals("/userModify.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
-            ucon.modify(request, response);
-        }else if(url.equals("/modifySuccess.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
-            ucon.success(request, response);
+        }else if(url.equals("/userModify.com")) {
+            ucon.modify(request, response); //창 띄우기
+        }else if(url.equals("/modifySuccess.com")) {
+
+            String id=request.getParameter("id");
+            String pw=request.getParameter("pass");
+            String name=request.getParameter("username");
+
+            ucon.success(request, response, id, pw, name);
         }
-        else if(url.equals("/delete.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+        else if(url.equals("/delete.com")) {
             ucon.delete(request, response);
         }
     }

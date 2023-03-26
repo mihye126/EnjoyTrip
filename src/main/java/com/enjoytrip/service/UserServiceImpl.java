@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int modifySuccess(User user) {
-        return dao.modifySuccess(user);
+    public int modifySuccess(User user, String pid, String ppw, String pname) {
+        return dao.modifySuccess(user,pid,ppw,pname);
     }
 
     @Override

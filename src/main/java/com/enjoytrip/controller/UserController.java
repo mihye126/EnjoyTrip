@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserController {
 
@@ -66,7 +70,7 @@ public class UserController {
     }
 
 
-    public void success(HttpServletRequest request, HttpServletResponse response) {
+    public void success(HttpServletRequest request, HttpServletResponse response ,String pid, String ppw, String pname) {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         //
@@ -75,19 +79,11 @@ public class UserController {
 
         User u = uservice.getUser(id,pw);
 
-        int flag = uservice.modifySuccess(u);
-        String url = "userInfo.com";//ok
-
-        if (flag==0) {//수정 실패
-            System.out.println("수정 실패");
-
-            url = "userModify.com";
-        }else{
-            System.out.println("수정 성공");
-        }
+        //새로 받아온 데이터로 넘기기
+        int x = uservice.modifySuccess(u, pid, ppw, pname);
 
         try {
-            response.sendRedirect(url);
+            response.sendRedirect("userInfo.com");
 
         } catch (IOException e) {
             e.printStackTrace();
