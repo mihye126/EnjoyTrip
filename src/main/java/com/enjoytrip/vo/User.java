@@ -8,8 +8,12 @@ public class User {
     private String address;
     private String bday;
 
+    public User() {
+    }
 
     public User(String id, String pass) {
+        this.id=id;
+        this.pass=pass;
     }
 
     public User(String id, String pass, String username, String number, String address, String bday) {

@@ -21,7 +21,9 @@ public class SignInController {
 
     public void login(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/pages/sign-in.jsp");
+
         try {
+
             dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,7 +45,6 @@ public class SignInController {
     }
 
     public void loginProcess(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("loginProcess");
         //1.사용자가 입력한 값 받아오기(id, pass)
         //2.받아온 값으로 User 객체 생성.  User user = new User(id, pass);
         //3.입력 정보가 맞는지 체크
@@ -56,9 +57,10 @@ public class SignInController {
 
         User user = new User(id, pass);
         boolean flag = service.check(user);
-        String url = "";//ok
+        String url = "index.jsp";//ok
 
         if (flag) {// 로그인 성공
+            System.out.println("로그인 성공");
             // 세션 처리
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
@@ -77,6 +79,7 @@ public class SignInController {
             }
 
         } else { //로그인 실패
+            System.out.println("로그인 실패");
             request.setAttribute("msg", "로그인 정보를 확인해 주세요!");
             //request.setAttribute("loginId", id);
             url = "sign-in.com";

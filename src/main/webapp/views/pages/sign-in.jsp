@@ -41,17 +41,17 @@
                                 <label for="id">Your ID</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
-                                    <input type="text" class="form-control" placeholder="example" id="id" name="id" value="${cookie.remem.value}"required>
+                                    <input type="text" class="form-control" placeholder="example" id="id" name="id" value="${cookie.remem.value}" required>
                                 </div>
                             </div>
                             <!-- End of Form -->
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="password">Your Password</label>
+                                    <label for="pass">Your Password</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon2"><span class="fas fa-unlock-alt"></span></span>
-                                        <input type="password" placeholder="Password" class="form-control" id="password" name="pass" required>
+                                        <input type="password" placeholder="Password" class="form-control" id="pass" name="pass" value="${cookie.remem.value}" required>
                                     </div>
                                 </div>
                                 <c:if test="${!empty msg}">${msg }</c:if>
@@ -63,7 +63,7 @@
                                             Remember me
                                         </label>
                                     </div>
-                                    <div><a href="./password.html" class="small text-right">Lost password?</a></div>
+                                    <div><a href="./password.jsp" class="small text-right">Lost password?</a></div>
                                 </div>
                             </div>
                             <div class="d-grid">

@@ -14,6 +14,6 @@ public class SignInServiceImpl implements SignInService {
 
     @Override
     public boolean check(User user) {
-        return false;
+        return dao.check(user);
     }
 }
