@@ -4,6 +4,7 @@ package com.enjoytrip.front;
 import com.enjoytrip.controller.PasswordController;
 import com.enjoytrip.controller.SignInController;
 import com.enjoytrip.controller.SignUpController;
+import com.enjoytrip.controller.UserController;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -18,12 +19,14 @@ public class FrontController extends HttpServlet {
     SignInController sicon;
     SignUpController sucon;
     PasswordController pwcon;
+    UserController ucon;
 
     public FrontController() {
 
         sicon=new SignInController();
         sucon=new SignUpController();
         pwcon=new PasswordController();
+        ucon=new UserController();
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)
@@ -45,7 +48,12 @@ public class FrontController extends HttpServlet {
         }else if(url.equals("/password.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
             pwcon.page(request, response);
         }else if(url.equals("/passModify.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
-            pwcon.modify(request, response);}
+            pwcon.modify(request, response);
+        }else if(url.equals("/userInfo.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            ucon.info(request, response);
+        }else if(url.equals("/userModify.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            ucon.modify(request, response);
+        }
     }
 
     @Override

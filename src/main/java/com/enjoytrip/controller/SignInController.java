@@ -38,7 +38,7 @@ public class SignInController {
 
         // 초기화면으로 redirect
         try {
-            response.sendRedirect("list");
+            response.sendRedirect("");
         } catch (Exception e) {
             e.printStackTrace();
         }
