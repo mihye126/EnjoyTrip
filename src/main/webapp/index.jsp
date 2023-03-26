@@ -8,10 +8,9 @@
 <body>
 <%@ include file="/views/components/header.jsp" %>
 <main>
-    </div>
-
     <!-- Hero -->
-    <section class="section-header overflow-hidden mt-5 pt-7 pt-lg-8 pb-9 pb-lg-12 bg-img text-white">
+    <section
+            class="section-header overflow-hidden mt-5 pt-7 pt-lg-8 pb-9 pb-lg-12 bg-img text-white">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -20,8 +19,9 @@
                     <h2 class="lead fw-normal text-muted mb-4 px-lg-10">Let Enjoy Trip be your
                         compass to
                         discovering new horizons.</h2>
-                    <!-- Button Modal -->
-                    <%@ include file="views/components/search.jsp" %>
+                    <jsp:include page="views/components/search.jsp" flush="false">
+                        <jsp:param value="${sidos}" name="sidos"/>
+                    </jsp:include>
                 </div>
             </div>
         </div>
@@ -42,95 +42,21 @@
         <div class="container">
             <div class="row mb-5">
 
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="./html/pages/sign-up.html" target="_blank"
-                       class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale" src="./assets/img/location/Jeju.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Jeju<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="" target="_blank" class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale" src=".//assets/img/location/Seoul.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Seoul<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="./html/pages/sign-up.html" target="_blank"
-                       class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale" src=".//assets/img/location/Busan.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Busan<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="./html/pages/sign-up.html" target="_blank"
-                       class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale" src=".//assets/img/location/Sokcho.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Sokcho<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="./html/pages/sign-up.html" target="_blank"
-                       class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale" src=".//assets/img/location/Suwon.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Suwon<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="./html/pages/sign-up.html" target="_blank"
-                       class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale" src=".//assets/img/location/Jeonju.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Jeonju<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="./html/pages/sign-up.html" target="_blank"
-                       class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale"
-                             src=".//assets/img/location/Incheon.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Incheon<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-3 mb-5">
-                    <a href="./html/pages/sign-up.html" target="_blank"
-                       class="page-preview scale-up-hover-2">
-                        <img class="shadow-lg rounded scale"
-                             src=".//assets/img/location/Gangneung.jpg"
-                             alt="Sign up page preview">
-                        <div class="text-center show-on-hover">
-                            <h3 class="h6 m-0 text-center text-white">Gangneung<span
-                                    class="fas fa-external-link-alt ms-2"></span></h3>
-                        </div>
-                    </a>
-                </div>
+                <c:forEach items="${categories}" var="category">
+                    <div class="col-6 col-lg-3 mb-5">
+                        <a href="list.com?code=${category.code}" target="_blank"
+                           class="page-preview scale-up-hover-2">
+                            <img class="shadow-lg rounded scale"
+                                 src="${category.img}"
+                                 alt="${category.name}">
+                            <div class="text-center show-on-hover">
+                                <h3 class="h6 m-0 text-center text-white">${category.name}<span
+                                        class="fas fa-external-link-alt ms-2"></span></h3>
+                            </div>
+                        </a>
+
+                    </div>
+                </c:forEach>
 
 
             </div>

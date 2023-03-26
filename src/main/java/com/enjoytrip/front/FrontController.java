@@ -1,10 +1,7 @@
 package com.enjoytrip.front;
 
 
-import com.enjoytrip.controller.PasswordController;
 import com.enjoytrip.controller.SignInController;
-import com.enjoytrip.controller.SignUpController;
-import com.enjoytrip.service.PasswordService;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -17,14 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet {
 
     SignInController sicon;
-    SignUpController sucon;
-    PasswordController pwcon;
 
     public FrontController() {
-
         sicon=new SignInController();
-        sucon=new SignUpController();
-        pwcon=new PasswordController();
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)
@@ -35,21 +27,10 @@ public class FrontController extends HttpServlet {
 
         if(url.equals("/sign-in.com")){
             sicon.login(request, response);
-        }
-        else if(url.equals("/logout.com")) {
+        } else if(url.equals("/logout.com")) {
             sicon.logout(request, response);
         }else if(url.equals("/loginProcess.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
             sicon.loginProcess(request, response);
-        }
-        else if(url.equals("/sign-up.com")) {
-            sucon.join(request, response);
-        }
-        else if(url.equals("/register.com")) {
-            sucon.register(request, response);
-        }else if(url.equals("/password.com")) {
-            pwcon.page(request, response);
-        }else if(url.equals("/passModify.com")) {
-            pwcon.modify(request, response);
         }
 
     }
