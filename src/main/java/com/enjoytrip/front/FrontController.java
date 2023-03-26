@@ -20,7 +20,10 @@ public class FrontController extends HttpServlet {
     PasswordController pwcon;
 
     public FrontController() {
+
         sicon=new SignInController();
+        sucon=new SignUpController();
+        pwcon=new PasswordController();
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)

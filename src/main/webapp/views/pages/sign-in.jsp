@@ -87,7 +87,7 @@
                         <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Not registered?
-                                    <a href="./sign-up.jsp" class="fw-bold text-underline">Create account</a>
+                                    <a href="sign-up.com" class="fw-bold text-underline">Create account</a>
                                 </span>
                         </div>
                     </div>
