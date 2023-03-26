@@ -1,7 +1,9 @@
 package com.enjoytrip.front;
 
 
+import com.enjoytrip.controller.PasswordController;
 import com.enjoytrip.controller.SignInController;
+import com.enjoytrip.controller.SignUpController;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -14,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet {
 
     SignInController sicon;
+    SignUpController sucon;
+    PasswordController pwcon;
 
     public FrontController() {
         sicon=new SignInController();
@@ -31,13 +35,18 @@ public class FrontController extends HttpServlet {
             sicon.logout(request, response);
         }else if(url.equals("/loginProcess.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
             sicon.loginProcess(request, response);
-        }
-
+        }else if(url.equals("/sign-up.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            sucon.join(request, response);
+        }else if(url.equals("/register.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            sucon.register(request, response);
+        }else if(url.equals("/password.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            pwcon.page(request, response);
+        }else if(url.equals("/passModify.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            pwcon.modify(request, response);}
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         process(request, response);
     }
 
