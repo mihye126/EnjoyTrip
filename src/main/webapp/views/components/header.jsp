@@ -37,6 +37,7 @@
                 </ul>
             </div>
             <div class="d-flex align-items-center">
+
                 <a href="./html/pages/sign-in.html" target="_blank"
                    class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
                     Sign In</a>
