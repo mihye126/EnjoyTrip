@@ -21,8 +21,8 @@ public class FrontController extends HttpServlet {
     SignUpController sucon;
     PasswordController pwcon;
     UserController ucon;
-    AttractionController attraction;
 
+    AttractionController attractionController;
 
     public FrontController() {
 
@@ -30,8 +30,7 @@ public class FrontController extends HttpServlet {
         sucon=new SignUpController();
         pwcon=new PasswordController();
         ucon=new UserController();
-        attraction=new AttractionController();
-
+        attractionController=new AttractionController();
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)
@@ -59,13 +58,21 @@ public class FrontController extends HttpServlet {
         }else if(url.equals("/userModify.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
             ucon.modify(request, response);
         }else if(url.equals("/modifySuccess.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
-            ucon.success(request, response);
-        }else if(url.equals("/index.com")) {
-            attraction.index(request, response);
-        }else if(url.equals("/list.com")) {
-            attraction.list(request, response);
-        }else if(url.equals("/read.com")) {
-            attraction.read(request, response);
+            String id=request.getParameter("id");
+            String pw=request.getParameter("pass");
+            String name=request.getParameter("username");
+
+            ucon.success(request, response, id, pw, name);
+        }else if(url.equals("/index.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            attractionController.index(request, response);
+        }else if(url.equals("/list.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            attractionController.list(request, response);
+        }
+        else if(url.equals("/read.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            attractionController.read(request, response);
+        }
+        else if(url.equals("/delete.com")) {//로그인 처리(db체크, 세션에 로그인 정보 저장)
+            ucon.delete(request, response);
         }
     }
 

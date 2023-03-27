@@ -34,7 +34,7 @@ public class SignUpController {
 
         User user = new User(id, pass, name);
         int flag = service.register(user);
-        String url = "userModify.com";//ok
+        String url = "index.jsp";//ok
 
         if (flag==0) {// 회원 가입 실패
             System.out.println("회원 가입 실패");
