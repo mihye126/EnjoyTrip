@@ -124,7 +124,7 @@
                             <span class="h5 my-0 my-lg-3 me-3 me-lg-0"
                             >Hi, ${oneUser.id}!</span
                             >
-                            <a href="#" class="btn btn-gray-300 btn-xs"
+                            <a href="logout.com" class="btn btn-gray-300 btn-xs"
                             ><span class="me-2"
                             ><span class="fas fa-sign-out-alt"></span></span
                             >Sign Out</a
