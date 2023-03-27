@@ -32,22 +32,41 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item"><a href="noticeList.com" class="nav-link">Notice</a></li>
-                    <li class="nav-item"><a href="html/pages/blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="userInfo.com" class="nav-link">Info</a></li>
+                    <li class="nav-item"><a href="list.com" class="nav-link">Trips</a></li>
+                    <li class="nav-item"><a href="list.blog" class="nav-link">Blog</a></li>
                 </ul>
             </div>
             <div class="d-flex align-items-center">
+                <c:choose>
+                    <%-- session에 userInfo 객체 없는 경우(로그인 X) --%>
+                    <c:when test="${empty user}">
+                        <a href="sign-in.com" target="_blank"
+                           class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
+                            Sign In</a>
+                        <a href="sign-up.com" target="_blank" class="btn btn-tertiary">
+                            <i class="fa-solid fa-right-to-bracket"></i> Sign Up </a>
+                        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </c:when>
+                    <%-- session에 userInfo 객체 있는 경우(로그인 O) --%>
+                    <c:otherwise>
 
-                <a href="sign-in.com" target="_blank"
-                   class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
-                    Sign In</a>
-                <a href="sign-up.com" target="_blank" class="btn btn-tertiary">
-                    <i class="fa-solid fa-right-to-bracket"></i> Sign Up </a>
-                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                        <a href="userInfo.com" target="_blank"
+                           class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
+                                ${user.id}님 유저정보 바로가기</a>
+                        <a href="logout.com" target="_blank" class="btn btn-tertiary">
+                            <i class="fa-solid fa-right-to-bracket"></i> Sign Out </a>
+                        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </c:otherwise>
+                </c:choose>
+
             </div>
         </div>
     </nav>

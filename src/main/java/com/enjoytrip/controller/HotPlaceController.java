@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.ImageIcon;
 
 public class HotPlaceController {
     HotPlaceService service;
@@ -92,6 +93,7 @@ public class HotPlaceController {
         String title=request.getParameter("title");
         String address=request.getParameter("address");
         String firstImage=request.getParameter("firstImage");
+        System.out.println(firstImage);
         String overview=request.getParameter("overview");
 
         HttpSession session= request.getSession();

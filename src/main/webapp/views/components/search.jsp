@@ -1,6 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="com.enjoytrip.vo.Sido" %>
-<%@ page import="com.enjoytrip.controller.SidoController" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 

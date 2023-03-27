@@ -5,9 +5,7 @@
 
 <%@ include file="/views/components/head.jsp" %>
 
-<%@ include file="/views/components/header.jsp" %>
 <body>
-
 <main>
 
     <!-- Section -->
@@ -22,11 +20,17 @@
                         </div>
                         <form action="loginProcess.com" method="post" class="mt-4">
                             <!-- Form -->
+
                             <div class="form-group mb-4">
                                 <label for="id">아이디</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
-                                    <input type="text" class="form-control" placeholder="example" id="id" name="id"  required>
+                                    <c:if test="${!empty cookie.savedId.value}">
+                                        <input type="text" class="form-control" placeholder="example" id="id" name="id"  value="${cookie.savedId.value}"  required>
+                                    </c:if>
+                                    <c:if test="${empty cookie.savedId.value}">
+                                        <input type="text" class="form-control" placeholder="example" id="id" name="id"  required>
+                                    </c:if>
                                 </div>
                             </div>
                             <!-- End of Form -->
@@ -39,11 +43,16 @@
                                         <input type="password" placeholder="Password" class="form-control" id="pass" name="pass"  required>
                                     </div>
                                 </div>
-                                <c:if test="${!empty msg}">${msg }</c:if>
                                 <!-- End of Form -->
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div class="form-check mb-0">
-                                        <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
+                                        <c:if test="${!empty cookie.savedId.value}">
+                                            <input class="form-check-input" type="checkbox" value="" id="remember" name="remember" checked>
+
+                                        </c:if>
+                                        <c:if test="${empty cookie.savedId.value}">
+                                            <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
+                                        </c:if>
                                         <label class="form-check-label mb-0" for="remember">
                                             Remember me
                                         </label>

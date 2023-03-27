@@ -72,13 +72,13 @@ public class SignInController {
 
             //cookie 처리---------------
             if(remember != null) {//체크박스 체크한 경우
-                Cookie remem = new Cookie("remem", id);
+                Cookie remem = new Cookie("savedId", id);
                 remem.setMaxAge(-1);
                 response.addCookie(remem);
 
             }else {//체크박스 푼 경우
                 //유효하지 않은 쿠키로 설정하기
-                Cookie cookie = new Cookie("remem", "");
+                Cookie cookie = new Cookie("savedId", "");
                 cookie.setMaxAge(0); // 유효하지 않은 쿠키
                 response.addCookie(cookie);
             }

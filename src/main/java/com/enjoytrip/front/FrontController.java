@@ -30,6 +30,7 @@ public class FrontController extends HttpServlet {
         ucon = new UserController();
         attractionController = new AttractionController();
         notFoundController = new NotFoundController();
+        noticecon=new NoticeController();
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)
