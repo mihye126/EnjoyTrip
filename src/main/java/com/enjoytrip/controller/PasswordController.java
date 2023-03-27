@@ -9,6 +9,7 @@ import com.enjoytrip.vo.User;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class PasswordController {
@@ -34,8 +35,10 @@ public class PasswordController {
         String id = request.getParameter("id");
         String newpass=request.getParameter("newpass");
         String passConfirm=request.getParameter("passConfirm");
-        System.out.println(id+" "+newpass+" "+passConfirm);
+
         int modiflag=0;
+        HttpSession session = request.getSession();
+
 
         String url = "sign-in.com";//비밀번호 수정완료시 로그인 창으로 이동
 
@@ -44,11 +47,15 @@ public class PasswordController {
 
             if (modiflag==1) {
                 System.out.println("비밀번호가 수정 완료. 로그인창으로 이동합니다.");
+                session.setAttribute("msg", "비밀번호가 수정 완료. 로그인창으로 이동합니다.");
 
             }else{
                 System.out.println("비밀번호 수정 실패.");
                 url="password.com";
+                session.setAttribute("msg", "비밀번호 수정 실패");
             }
+        }else{
+            session.setAttribute("msg", "비밀번호가 동일하지 않습니다.");
         }
 
         try {
