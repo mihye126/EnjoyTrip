@@ -33,14 +33,15 @@
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item"><a href="html/pages/noticeList.html" class="nav-link">Notice</a></li>
                     <li class="nav-item"><a href="html/pages/blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="html/pages/userInfo.html" class="nav-link">Info</a></li>
+                    <li class="nav-item"><a href="userInfo.com" class="nav-link">Info</a></li>
                 </ul>
             </div>
             <div class="d-flex align-items-center">
-                <a href="./html/pages/sign-in.html" target="_blank"
+
+                <a href="sign-in.com" target="_blank"
                    class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
                     Sign In</a>
-                <a href="./html/pages/sign-up.html" target="_blank" class="btn btn-tertiary">
+                <a href="sign-up.com" target="_blank" class="btn btn-tertiary">
                     <i class="fa-solid fa-right-to-bracket"></i> Sign Up </a>
                 <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false"

@@ -8,7 +8,6 @@
 <body>
 <%@ include file="/views/components/header.jsp" %>
 <main>
-
     <div class="preloader bg-dark flex-column justify-content-center align-items-center">
         <svg id="loader-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 78.4">
             <path fill="#fff" d="M10,0h1.2V11.2H0V10A10,10,0,0,1,10,0Z"/>
@@ -33,45 +32,57 @@
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                         <div class="text-center text-md-center mb-4 mt-md-0">
-                            <h1 class="mb-0 h3">Sign in to our platform</h1>
+                            <h1 class="mb-0 h3">Create an account</h1>
                         </div>
-                        <form action="loginProcess.com" method="post" class="mt-4">
+                        <form action="register.com">
+                            <div class="form-group mb-4">
+                                <label for="name">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon2"><span class="fas fa-envelope"></span></span>
+                                    <input type="text" class="form-control" placeholder="홍길동" id="name" name="name" required>
+                                </div>
+                            </div>
                             <!-- Form -->
                             <div class="form-group mb-4">
                                 <label for="id">Your ID</label>
                                 <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1"><span class="fas fa-envelope"></span></span>
-                                    <input type="text" class="form-control" placeholder="example" id="id" name="id"  required>
+                                    <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
+                                    <input type="text" class="form-control" placeholder="example" id="id" name="id" required>
                                 </div>
                             </div>
                             <!-- End of Form -->
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="pass">Your Password</label>
+                                    <label for="password">Your Password</label>
                                     <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon2"><span class="fas fa-unlock-alt"></span></span>
-                                        <input type="password" placeholder="Password" class="form-control" id="pass" name="pass"  required>
+                                        <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
+                                        <input type="password" placeholder="Password" class="form-control" id="password" name="pass" required>
                                     </div>
                                 </div>
-                                <c:if test="${!empty msg}">${msg }</c:if>
                                 <!-- End of Form -->
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <div class="form-check mb-0">
-                                        <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
-                                        <label class="form-check-label mb-0" for="remember">
-                                            Remember me
-                                        </label>
+                                <!-- Form -->
+                                <div class="form-group mb-4">
+                                    <label for="password_confirm">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span>
+                                        <input type="password" placeholder="Confirm Password" class="form-control" id="password_confirm" name="passConfirm" required>
                                     </div>
-                                    <div><a href="password.com" class="small text-right">Lost password?</a></div>
+                                </div>
+                                <!-- End of Form -->
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="terms" name="agree">
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the <a href="#">terms and conditions</a>
+                                    </label>
                                 </div>
                             </div>
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Sign in</button>
+                                <button type="submit" class="btn btn-primary">Sign up</button>
                             </div>
                         </form>
                         <div class="mt-3 mb-4 text-center">
-                            <span class="fw-normal">or login with</span>
+                            <span class="fw-normal">or</span>
                         </div>
                         <div class="btn-wrapper my-4 text-center">
                             <a href="#" class="btn btn-icon-only btn-pill btn-outline-gray-300 text-facebook me-2" aria-label="facebook button" title="facebook button">
@@ -86,8 +97,8 @@
                         </div>
                         <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
-                                    Not registered?
-                                    <a href="sign-up.com" class="fw-bold text-underline">Create account</a>
+                                    Already have an account?
+                                    <a href="sign-in.com" class="fw-bold text-underline">Login here</a>
                                 </span>
                         </div>
                     </div>
@@ -95,8 +106,8 @@
             </div>
         </div>
     </section>
-</main>
 
+</main>
 
 <%@ include file="/views/components/script.jsp" %>
 
