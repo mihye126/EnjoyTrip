@@ -18,7 +18,7 @@
           <p class="lead mb-4 mb-lg-5 me-lg-5">
             당신만의 특별한 여행을 공유하세요!
           </p>
-          <a class="btn btn-warning" href="./noticeWrite.html">Post   <i class="fa-solid fa-plus ms-2"></i></a>
+          <a class="btn btn-warning" href="insert.blog">Post   <i class="fa-solid fa-plus ms-2"></i></a>
         </div>
         <div class="col-12 col-md-5 d-none d-lg-block text-center"><img
                 src="../../assets/img/illustrations/meditating.svg" alt="girl meditating"></div>

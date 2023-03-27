@@ -15,7 +15,6 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 text-center"><h1 class="display-2 mb-3">${attraction.title}</h1>
-                    <p>${attraction.overview}</p></div>
             </div>
         </div>
     </section>
@@ -48,7 +47,14 @@
 
             </div>
         </div>
+            <div class="row justify-content-center pt-3">
+                <div class="col-12 ">
+            <p>${attraction.overview}</p>
+                </div>
+            </div>
     </div>
+
+  </div>
   </div>
 
 </main>

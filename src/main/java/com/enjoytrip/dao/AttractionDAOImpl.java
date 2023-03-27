@@ -24,7 +24,6 @@ public class AttractionDAOImpl implements AttractionDAO{
         try {
 
             Connection connection= util.getConnection();
-            attractions.clear();
             String q="select info.content_id contentID, content_type_id, title, concat(addr1,' ',addr2) address, tel, first_image, sido_code,  latitude, longitude, overview "
                 + "from attraction_info info join attraction_description `description` "
                 + "on info.content_id= `description`.content_id  where info.content_id=?";

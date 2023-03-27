@@ -8,9 +8,19 @@
 <body>
 <%@ include file="/views/components/header.jsp" %>
 <main>
+    <c:set value="${hotPlace}" var="hotPlace"/>
     <!-- Hero -->
-    <jsp:include page="/views/components/blog-head.jsp"/>
-    <jsp:include page="/views/components/blog-content.jsp"/>
+    <jsp:include page="/views/components/blog-head.jsp" flush="false">
+        <jsp:param value="${hotPlace.title}" name="title"/>
+        <jsp:param value="${hotPlace.contentTypeID}" name="contentTypeID"/>
+        <jsp:param value="${hotPlace.firstImage}" name="firstImage"/>
+        <jsp:param value="${hotPlace.username}" name="username"/>
+        <jsp:param value="${hotPlace.userID}" name="userID"/>
+    </jsp:include>
+    <jsp:include page="/views/components/blog-content.jsp" flush="false">
+        <jsp:param value="${hotPlace.content}" name="content"/>
+        <jsp:param value="${hotPlace.address}" name="address"/>
+    </jsp:include>
 
     <div class="section section-md bg-white text-black pt-0 line-bottom-light">
         <div class="container">
@@ -31,6 +41,7 @@
 
 </main>
 <%@ include file="/views/components/script.jsp" %>
+
 
 
 </body>
