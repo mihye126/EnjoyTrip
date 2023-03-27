@@ -23,8 +23,6 @@ public class SignInDAOImpl implements SignInDAO{
             String q = "select id from user where id = ? and pw = ?";
             PreparedStatement stat = con.prepareStatement(q);
 
-            System.out.println(user.getId());
-
             stat.setString(1, user.getId());
             stat.setString(2, user.getPass());
 

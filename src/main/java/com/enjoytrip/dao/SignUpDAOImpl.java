@@ -6,6 +6,7 @@ import com.enjoytrip.vo.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.servlet.http.HttpSession;
 
 public class SignUpDAOImpl implements SignUpDAO{
     DBUtil util;
@@ -28,7 +29,6 @@ public class SignUpDAOImpl implements SignUpDAO{
             ResultSet rs = stat.executeQuery();
 
             if (rs.next()!=false){
-                System.out.println("중복된 아이디입니다.");
                 return 0;
             }
 

@@ -42,11 +42,9 @@ public class SignUpController {
         if (flag==0) {// 회원 가입 실패
 
             session.setAttribute("msg", "이미 존재하는 아이디입니다.");
-            System.out.println("회원 가입 실패");
 
             url = "sign-up.com";
         }else{
-            System.out.println("회원가입 성공");
             session.setAttribute("msg", "회원가입 성공! 로그인을 해주세요.");
         }
 

@@ -46,11 +46,9 @@ public class PasswordController {
             modiflag=service.modify(id,newpass);
 
             if (modiflag==1) {
-                System.out.println("비밀번호가 수정 완료. 로그인창으로 이동합니다.");
                 session.setAttribute("msg", "비밀번호가 수정 완료. 로그인창으로 이동합니다.");
 
             }else{
-                System.out.println("비밀번호 수정 실패.");
                 url="password.com";
                 session.setAttribute("msg", "비밀번호 수정 실패");
             }

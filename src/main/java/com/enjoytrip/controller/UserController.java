@@ -100,8 +100,6 @@ public class UserController {
         User u = uservice.getUser(id,pw);
 
         int flag = uservice.delete(u);
-
-        System.out.println("탈퇴되었습니다.");
         session.setAttribute("msg", "탈퇴 되었습니다");
 
         try {

@@ -61,7 +61,6 @@ public class SignInController {
         String url = "index.com";//ok
         HttpSession session = request.getSession();
         if (flag) {// 로그인 성공
-            System.out.println("로그인 성공");
             // 세션 처리
 
             session.setAttribute("user", user);
@@ -84,7 +83,6 @@ public class SignInController {
             }
 
         } else { //로그인 실패
-            System.out.println("로그인 실패");
             session.setAttribute("msg", "로그인 정보를 확인해 주세요!");
             //request.setAttribute("loginId", id);
             url = "sign-in.com";
