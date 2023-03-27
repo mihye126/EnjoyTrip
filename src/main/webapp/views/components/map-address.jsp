@@ -1,11 +1,12 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Map JS -->
 <script
         type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9aec3b964ed8614de3ec88c7cd3be6ce&libraries=services,clusterer,drawing"
 ></script>
-<c:set value="${address}" var="address"/>
 <script>
+
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -17,7 +18,7 @@
 
   // 주소-좌표 변환 객체를 생성합니다
   var geocoder = new kakao.maps.services.Geocoder();
-  geocoder.addressSearch(${address}, function(result, status) {
+  geocoder.addressSearch("${hotPlace.address}", function(result, status) {
 
     // 정상적으로 검색이 완료됐으면
     if (status === kakao.maps.services.Status.OK) {

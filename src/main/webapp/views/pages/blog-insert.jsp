@@ -26,7 +26,7 @@
                 <div class="col-12 col-lg-8">
                     <div class="card border-0 p-2 p-md-3 p-lg-5">
                         <div class="card-body px-0 pt-0">
-                            <form action="hotPlaceInsertProcess.com" method="post">
+                            <form action="insertProcess.blog" method="post">
                               <div class="mb-4">
                                 <label for="name">대표 이미지</label>
                                 <div class="input-group">
@@ -36,7 +36,7 @@
                                 <div class="mb-4">
                                   <label for="name">핫플 이름</label>
                                     <div class="input-group">
-                                      <input type="text" class="form-control" placeholder="핫플 이름을 입력해주세요" id="name" required="">
+                                      <input type="text" class="form-control" placeholder="핫플 이름을 입력해주세요" id="name" required="" name="title">
                                     </div>
                                 </div>
                                 <div class="mb-4">
@@ -54,15 +54,17 @@
                                       <option value="39">음식점</option>
                                     </select>
                                 </div>
-                                  <div class="mb-4">
-                                    <label for="name">핫플 주소</label>
-                                    <div class="input-group">
-                                      <input type="text" class="form-control" placeholder="핫플 이름을 입력해주세요" id="address" required="" name="address">
-                                    </div>
-                                  </div>
-                                <div id="map" style="width: 100%; height: 400px"></div>
 
                               </div>
+
+                                <div class="mb-4">
+                                    <label for="name">핫플 주소</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="핫플 주소를 입력해주세요" id="address" required="" name="address">
+                                    </div>
+                                </div>
+                                <div id="map" style="width: 100%; height: 400px"></div>
+
                                 <div class="mb-4"><label for="overview">핫플 상세 설명</label>
                                     <textarea placeholder="Your message" class="form-control"
                                               id="overview" rows="4" name="overview" required=""></textarea></div>

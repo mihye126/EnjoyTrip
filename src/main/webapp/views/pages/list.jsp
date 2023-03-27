@@ -60,7 +60,7 @@
                         <c:forEach items="${attractions}" var="attraction" begin="${startContent}" end="${endContent}">
 
                         <tr>
-                                <td><img style="height: 100px;width: 200px" src="${attraction.firstImage!=""? attraction.firstImage:"https://www.muskersbroughtonhall.com.au/wp-content/plugins/ninja-forms/assets/img/no-image-available-icon-6.jpg"}"/></td>
+                                <td><img style="height: 100px;width: 200px" src="${attraction.firstImage}"/></td>
                                 <td><a href="read.com?contentID=${attraction.contentID}">${attraction.title}</a></td>
                                 <td>${attraction.address}</td>
                                 <td><fmt:formatNumber value="${attraction.latitude}" pattern=".00"/></td>

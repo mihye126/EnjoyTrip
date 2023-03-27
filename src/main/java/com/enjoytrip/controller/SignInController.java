@@ -58,7 +58,7 @@ public class SignInController {
 
         User user = new User(id, pass);
         boolean flag = service.check(user);
-        String url = "userInfo.com";//ok
+        String url = "index.com";//ok
         HttpSession session = request.getSession();
         if (flag) {// 로그인 성공
             System.out.println("로그인 성공");

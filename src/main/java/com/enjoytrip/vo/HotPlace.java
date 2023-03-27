@@ -96,4 +96,19 @@ public class HotPlace {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    @Override
+    public String toString() {
+        return "HotPlace{" +
+            "contentID='" + contentID + '\'' +
+            ", contentTypeID='" + contentTypeID + '\'' +
+            ", title='" + title + '\'' +
+            ", address='" + address + '\'' +
+            ", firstImage='" + firstImage + '\'' +
+            ", readcount=" + readcount +
+            ", overview='" + overview + '\'' +
+            ", userID='" + userID + '\'' +
+            ", userName='" + userName + '\'' +
+            '}';
+    }
 }

@@ -22,7 +22,7 @@ public class HotPlaceFrontController extends HttpServlet {
         throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String url = request.getServletPath();
-        System.out.println(url);
+
         if(url.equals("/list.blog")){
             controller.list(request, response);
         }else if(url.equals("/read.blog")){
@@ -30,7 +30,6 @@ public class HotPlaceFrontController extends HttpServlet {
         }else if(url.equals("/delete.blog")){
             controller.delete(request, response);
         }else if(url.equals("/insert.blog")){
-            System.out.println("");
             controller.insert(request, response);
         }else if(url.equals("/insertProcess.blog")){
             controller.insertProcess(request, response);

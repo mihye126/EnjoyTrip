@@ -69,4 +69,15 @@ public class User {
     public void setBday(String bday) {
         this.bday = bday;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "id='" + id + '\'' +
+            ", pass='" + pass + '\'' +
+            ", username='" + username + '\'' +
+            ", num='" + num + '\'' +
+            ", bday='" + bday + '\'' +
+            '}';
+    }
 }

@@ -1,5 +1,7 @@
 package com.enjoytrip.vo;
 
+import java.util.Objects;
+
 public class Attraction {
 
     String contentID;
@@ -21,7 +23,7 @@ public class Attraction {
         this.title = title;
         this.address = address;
         this.tel = tel;
-        this.firstImage = firstImage;
+        this.firstImage = ! firstImage.equals("") ? firstImage:"https://www.muskersbroughtonhall.com.au/wp-content/plugins/ninja-forms/assets/img/no-image-available-icon-6.jpg";
         this.sidoCode = sidoCode;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -106,5 +108,21 @@ public class Attraction {
 
     public void setOverview(String overview) {
         this.overview = overview;
+    }
+
+    @Override
+    public String toString() {
+        return "Attraction{" +
+            "contentID='" + contentID + '\'' +
+            ", contentTypeID='" + contentTypeID + '\'' +
+            ", title='" + title + '\'' +
+            ", address='" + address + '\'' +
+            ", tel='" + tel + '\'' +
+            ", firstImage='" + firstImage + '\'' +
+            ", sidoCode='" + sidoCode + '\'' +
+            ", latitude='" + latitude + '\'' +
+            ", longitude='" + longitude + '\'' +
+            ", overview='" + overview + '\'' +
+            '}';
     }
 }

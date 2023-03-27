@@ -28,26 +28,18 @@
   <section class="section section-lg line-bottom-light">
     <div class="container mt-n10 mt-lg-n12 z-2">
       <div class="row">
+        <c:forEach items="${hotPlaces}" var="hotPlace">
 
-        <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-          <jsp:include page="/views/components/blog-item.jsp"/>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-          <jsp:include page="/views/components/blog-item.jsp"/>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-          <jsp:include page="/views/components/blog-item.jsp"/>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-          <jsp:include page="/views/components/blog-item.jsp"/>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-          <jsp:include page="/views/components/blog-item.jsp"/>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-          <jsp:include page="/views/components/blog-item.jsp"/>
-        </div>
-
+          <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
+            <c:import url="/views/components/blog-item.jsp" >
+              <c:param value="${hotPlace.title}" name="title" />
+              <c:param value="${hotPlace.address}" name="address" />
+              <c:param value="${hotPlace.firstImage}" name="firstImage" />
+              <c:param value="${hotPlace.contentID}" name="contentID" />
+              <c:param value="${hotPlace.userName}" name="userName" />
+            </c:import>
+          </div>
+        </c:forEach>
 
       </div>
     </div>

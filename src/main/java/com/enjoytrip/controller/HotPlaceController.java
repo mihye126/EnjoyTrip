@@ -21,6 +21,7 @@ public class HotPlaceController {
     public void list(HttpServletRequest request, HttpServletResponse response){
         RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog-list.jsp");
         request.setAttribute("hotPlaces", service.selectAll());
+        System.out.println(service.selectAll());
 
         try {
             dispatcher.forward(request,response);
@@ -35,7 +36,7 @@ public class HotPlaceController {
     public void read(HttpServletRequest request, HttpServletResponse response){
         RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog-post.jsp");
         String contentID=request.getParameter("contentID");
-        request.setAttribute("hotPlaces", service.selectOne(contentID));
+        request.setAttribute("hotPlace", service.selectOne(contentID));
 
         try {
             dispatcher.forward(request,response);
@@ -48,7 +49,7 @@ public class HotPlaceController {
 
     public void delete(HttpServletRequest request, HttpServletResponse response){
 
-        String mobileCode=request.getParameter("mobileCode");
+        String mobileCode=request.getParameter("contentID");
         int flag=service.delete(mobileCode);
 
         try {
@@ -63,13 +64,12 @@ public class HotPlaceController {
         RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog-insert.jsp");
 
         HttpSession session= request.getSession();
-        User userInfo= (User) session.getAttribute("userInfo");
-
-        if(userInfo==null){
+        User user= (User) session.getAttribute("user");
+        if(user==null){
 
             try {
                 session.setAttribute("msg","로그인이 필요합니다.");
-                response.sendRedirect("login.com");
+                response.sendRedirect("sign-in.com");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -95,7 +95,7 @@ public class HotPlaceController {
         String overview=request.getParameter("overview");
 
         HttpSession session= request.getSession();
-        User user= (User) session.getAttribute("userInfo");
+        User user= (User) session.getAttribute("user");
 
 
         int flag=service.insert(new HotPlace(null,contentTypeID,title,address,firstImage,0,overview,

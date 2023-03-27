@@ -58,7 +58,7 @@ public class HotPlaceDAOImpl implements HotPlaceDAO{
         try {
 
             Connection connection= util.getConnection();
-            String q="select contentID,content_type_id,title,address,first_image,readcount, overview, user_id,  username from  hotplace join user on hotplace.user_id = user.id where info.content_id=?";
+            String q="select contentID,content_type_id,title,address,first_image,readcount, overview, user_id,  username from  hotplace join user on hotplace.user_id = user.id where hotplace.contentID=?";
             PreparedStatement statement=connection.prepareStatement(q);
             statement.setString(1,contentID);
             ResultSet resultSet=statement.executeQuery();
@@ -108,7 +108,7 @@ public class HotPlaceDAOImpl implements HotPlaceDAO{
         try {
 
             Connection connection = util.getConnection();
-            String q="INSERT INTO `hotplace` (content_type_id, title, address, first_image,overview,user_id)VALUES (?,?,?,?,?,?,?)";
+            String q="INSERT INTO `hotplace` (content_type_id, title, address, first_image,overview,user_id) VALUES (?,?,?,?,?,?)";
             PreparedStatement statement= connection.prepareStatement(q);
             statement.setString(1, hotPlace.getContentTypeID());
             statement.setString(2, hotPlace.getTitle());
