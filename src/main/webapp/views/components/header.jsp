@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-                    <li class="nav-item"><a href="html/pages/noticeList.html" class="nav-link">Notice</a></li>
+                    <li class="nav-item"><a href="noticeList.com" class="nav-link">Notice</a></li>
                     <li class="nav-item"><a href="html/pages/blog.html" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="userInfo.com" class="nav-link">Info</a></li>
                 </ul>
