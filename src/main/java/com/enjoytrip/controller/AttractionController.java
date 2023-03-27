@@ -24,8 +24,7 @@ public class AttractionController {
     }
 
     public void index(HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher dispatcher= request.getRequestDispatcher("index.jsp");
-        System.out.println(sidoService.getSidos());
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/main.jsp");
         request.setAttribute("sidos", sidoService.getSidos());
 
         List<Category> categories =new ArrayList<>();
@@ -54,9 +53,30 @@ public class AttractionController {
         RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/list.jsp");
         String sidoCode=request.getParameter("sidoCode");
         String contentTypeID=request.getParameter("contentTypeID");
+        String pageNumber=request.getParameter("pageNumber");
 
         request.setAttribute("sidos", sidoService.getSidos());
-        request.setAttribute("attractions", attractionService.search(sidoCode,contentTypeID));
+        request.setAttribute("attractions", attractionService.search(sidoCode,contentTypeID==null? "12" :contentTypeID));
+
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void read(HttpServletRequest request, HttpServletResponse response){
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/read.jsp");
+        String contentID=request.getParameter("contentID");
+        Attraction attraction=attractionService.selectOne(contentID);
+
+        request.setAttribute("attraction", attraction);
+        request.setAttribute("latitude", attraction.getLatitude());
+        request.setAttribute("longitude", attraction.getLongitude());
+
 
         try {
             dispatcher.forward(request,response);

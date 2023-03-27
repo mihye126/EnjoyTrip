@@ -26,3 +26,8 @@
 
 <!-- Pixel CSS -->
 <link type="text/css" href="/css/pixel.css" rel="stylesheet">
+
+<c:if test="${!empty msg}">
+    alert("${msg}");
+    <% session.setAttribute("msg",null);%>
+</c:if>

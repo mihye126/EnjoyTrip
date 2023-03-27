@@ -59,11 +59,11 @@ public class SignInController {
         User user = new User(id, pass);
         boolean flag = service.check(user);
         String url = "userInfo.com";//ok
-
+        HttpSession session = request.getSession();
         if (flag) {// 로그인 성공
             System.out.println("로그인 성공");
             // 세션 처리
-            HttpSession session = request.getSession();
+
             session.setAttribute("user", user);
 
 //            Cookie userid = new Cookie("id", id);
@@ -85,7 +85,7 @@ public class SignInController {
 
         } else { //로그인 실패
             System.out.println("로그인 실패");
-            request.setAttribute("msg", "로그인 정보를 확인해 주세요!");
+            session.setAttribute("msg", "로그인 정보를 확인해 주세요!");
             //request.setAttribute("loginId", id);
             url = "sign-in.com";
         }

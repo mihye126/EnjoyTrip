@@ -5,38 +5,27 @@ public class Attraction {
     String contentID;
     String contentTypeID;
     String title;
-    String addr1;
-    String addr2;
-    String zipcode;
+    String address;
     String tel;
     String firstImage;
-    String firstImage2;
-    int readCount;
     String sidoCode;
-    String gugunCode;
     String latitude;
     String longitude;
-    String mlevel;
+    String overview;
 
-    public Attraction(String contentID, String contentTypeID, String title, String addr1,
-        String addr2,
-        String zipcode, String tel, String firstImage, String firstImage2, int readCount,
-        String sidoCode, String gugunCode, String latitude, String longitude, String mlevel) {
+    public Attraction(String contentID, String contentTypeID, String title, String address,
+        String tel,
+        String firstImage, String sidoCode, String latitude, String longitude, String overview) {
         this.contentID = contentID;
         this.contentTypeID = contentTypeID;
         this.title = title;
-        this.addr1 = addr1;
-        this.addr2 = addr2;
-        this.zipcode = zipcode;
+        this.address = address;
         this.tel = tel;
         this.firstImage = firstImage;
-        this.firstImage2 = firstImage2;
-        this.readCount = readCount;
         this.sidoCode = sidoCode;
-        this.gugunCode = gugunCode;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.mlevel = mlevel;
+        this.overview = overview;
     }
 
     public String getContentID() {
@@ -63,28 +52,12 @@ public class Attraction {
         this.title = title;
     }
 
-    public String getAddr1() {
-        return addr1;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddr1(String addr1) {
-        this.addr1 = addr1;
-    }
-
-    public String getAddr2() {
-        return addr2;
-    }
-
-    public void setAddr2(String addr2) {
-        this.addr2 = addr2;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getTel() {
@@ -103,36 +76,12 @@ public class Attraction {
         this.firstImage = firstImage;
     }
 
-    public String getFirstImage2() {
-        return firstImage2;
-    }
-
-    public void setFirstImage2(String firstImage2) {
-        this.firstImage2 = firstImage2;
-    }
-
-    public int getReadCount() {
-        return readCount;
-    }
-
-    public void setReadCount(int readCount) {
-        this.readCount = readCount;
-    }
-
     public String getSidoCode() {
         return sidoCode;
     }
 
     public void setSidoCode(String sidoCode) {
         this.sidoCode = sidoCode;
-    }
-
-    public String getGugunCode() {
-        return gugunCode;
-    }
-
-    public void setGugunCode(String gugunCode) {
-        this.gugunCode = gugunCode;
     }
 
     public String getLatitude() {
@@ -151,11 +100,11 @@ public class Attraction {
         this.longitude = longitude;
     }
 
-    public String getMlevel() {
-        return mlevel;
+    public String getOverview() {
+        return overview;
     }
 
-    public void setMlevel(String mlevel) {
-        this.mlevel = mlevel;
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 }

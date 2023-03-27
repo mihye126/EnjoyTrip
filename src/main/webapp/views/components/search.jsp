@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- Form -->
-<form class="row mb-4 mb-lg-5 pt-2" action="list.com" method="post">
+<form class="row mb-4 mb-lg-5 pt-2" action="list.com" method="get">
 
     <div class="col-5">
 
@@ -15,7 +15,19 @@
                             <i class="fa-solid fa-location-dot"></i></span>
                 <select class="form-select" id="search-area" aria-label="검색 할 지역 선택" name="sidoCode">
                     <c:forEach var="sido" items="${sidos}">
-                        <option value="${sido.code}">${sido.name}</option>
+
+                        <c:choose>
+
+                            <c:when test="${sido.code==param.sidoCode}">
+                                <option value="${sido.code}" selected>${sido.name}</option>
+
+                            </c:when>
+
+                            <c:otherwise>
+                                <option value="${sido.code}">${sido.name}</option>
+                            </c:otherwise>
+
+                        </c:choose>
                     </c:forEach>
 
                 </select>

@@ -25,30 +25,26 @@ public class AttractionDAOImpl implements AttractionDAO{
 
             Connection connection= util.getConnection();
             attractions.clear();
-
-            String q="select * from attraction_info where content_id=?";
+            String q="select info.content_id contentID, content_type_id, title, concat(addr1,' ',addr2) address, tel, first_image, sido_code,  latitude, longitude, overview "
+                + "from attraction_info info join attraction_description `description` "
+                + "on info.content_id= `description`.content_id  where info.content_id=?";
             PreparedStatement statement=connection.prepareStatement(q);
             statement.setString(1,contentID);
             ResultSet resultSet=statement.executeQuery();
 
             while (resultSet.next()){
-                 contentID= resultSet.getString(1);
-                String contentTypeID= resultSet.getString(2);
-                String title= resultSet.getString(3);
-                String addr1= resultSet.getString(4);
-                String addr2= resultSet.getString(5);
-                String zipcode= resultSet.getString(6);
-                String tel= resultSet.getString(7);
-                String firstImage= resultSet.getString(8);
-                String firstImage2= resultSet.getString(9);
-                String readCount= resultSet.getString(10);
-                String sidoCode= resultSet.getString(11);
-                String gugunCode= resultSet.getString(12);
-                String latitude= resultSet.getString(13);
-                String longitude= resultSet.getString(14);
-                String mlevel= resultSet.getString(15);
+                 contentID=resultSet.getString(1);
+                String contentTypeID=resultSet.getString(2);
+                String title=resultSet.getString(3);
+                String address=resultSet.getString(4);
+                String tel=resultSet.getString(5);
+                String firstImage=resultSet.getString(6);
+                String sidoCode=resultSet.getString(7);
+                String latitude=resultSet.getString(8);
+                String longitude=resultSet.getString(9);
+                String overview=resultSet.getString(10);
 
-                attraction=new Attraction(contentID,contentTypeID,title,addr1,addr2,zipcode,tel,firstImage,firstImage2,Integer.parseInt(readCount),sidoCode,gugunCode,latitude,longitude,mlevel);
+                attraction=new Attraction(contentID,contentTypeID,title,address,tel,firstImage,sidoCode,latitude,longitude,overview);
             }
 
 
@@ -65,30 +61,28 @@ public class AttractionDAOImpl implements AttractionDAO{
             Connection connection= util.getConnection();
             attractions.clear();
 
-            String q="select * from attraction_info where sido_code=? and content_type_id=? ";
+            String q="select info.content_id contentID, content_type_id, title, concat(addr1,' ',addr2) address, tel, first_image, sido_code,  latitude, longitude, overview"
+                + " from attraction_info info join attraction_description `description` "
+                + "on info.content_id= `description`.content_id where sido_code=? and content_type_id=? ";
             PreparedStatement statement=connection.prepareStatement(q);
             statement.setString(1,sidoCode);
             statement.setString(2,contentTypeID);
             ResultSet resultSet=statement.executeQuery();
 
             while (resultSet.next()){
-                String contentID= resultSet.getString(1);
-                contentTypeID= resultSet.getString(2);
-                String title= resultSet.getString(3);
-                String addr1= resultSet.getString(4);
-                String addr2= resultSet.getString(5);
-                String zipcode= resultSet.getString(6);
-                String tel= resultSet.getString(7);
-                String firstImage= resultSet.getString(8);
-                String firstImage2= resultSet.getString(9);
-                String readCount= resultSet.getString(10);
-                sidoCode= resultSet.getString(11);
-                String gugunCode= resultSet.getString(12);
-                String latitude= resultSet.getString(13);
-                String longitude= resultSet.getString(14);
-                String mlevel= resultSet.getString(15);
 
-                attractions.add(new Attraction(contentID,contentTypeID,title,addr1,addr2,zipcode,tel,firstImage,firstImage2,Integer.parseInt(readCount),sidoCode,gugunCode,latitude,longitude,mlevel));
+                String contentID=resultSet.getString(1);
+                contentTypeID=resultSet.getString(2);
+                String title=resultSet.getString(3);
+                String address=resultSet.getString(4);
+                String tel=resultSet.getString(5);
+                String firstImage=resultSet.getString(6);
+                 sidoCode=resultSet.getString(7);
+                String latitude=resultSet.getString(8);
+                String longitude=resultSet.getString(9);
+                String overview=resultSet.getString(10);
+
+                attractions.add(new Attraction(contentID,contentTypeID,title,address,tel,firstImage,sidoCode,latitude,longitude,overview));
             }
 
 

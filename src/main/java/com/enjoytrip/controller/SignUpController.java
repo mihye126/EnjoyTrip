@@ -16,8 +16,6 @@ public class SignUpController {
         service=new SignUpServiceImpl();
     }
 
-
-
     public void join(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/pages/sign-up.jsp");
         try {
