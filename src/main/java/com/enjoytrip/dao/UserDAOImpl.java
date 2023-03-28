@@ -136,6 +136,8 @@ public class UserDAOImpl implements UserDAO{
             String pass=user.getPass();
             String name=user.getUsername();
 
+            System.out.println(user);
+
             String checkq = "select id from user where id = ?";
             PreparedStatement stat = con.prepareStatement(checkq);
             stat.setString(1, id);

@@ -216,7 +216,7 @@ public class UserController {
     public void registerProcess(HttpServletRequest request, HttpServletResponse response) {
         String name=request.getParameter("name");
         String id = request.getParameter("id");
-        String pass = request.getParameter("pass");
+        String pass = request.getParameter("password");
 
         HttpSession session = request.getSession();
 
