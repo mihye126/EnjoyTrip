@@ -12,17 +12,32 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getUser(String id, String pw) {
-        return dao.getUser(id, pw);
+    public User selectOne(String id, String pw) {
+        return dao.selectOne(id,pw);
     }
 
     @Override
-    public int modifySuccess(User user, String pid, String ppw, String pname) {
-        return dao.modifySuccess(user,pid,ppw,pname);
+    public int updateUser(User user, String pid, String ppw, String pname) {
+        return dao.updateUser(user,pid,ppw,pname);
+    }
+
+    @Override
+    public int updatePassword(String id, String newpass) {
+        return dao.updatePassword(id,newpass);
     }
 
     @Override
     public int delete(User user) {
         return dao.delete(user);
+    }
+
+    @Override
+    public int register(User user) {
+        return dao.register(user);
+    }
+
+    @Override
+    public boolean check(User user) {
+        return dao.check(user);
     }
 }

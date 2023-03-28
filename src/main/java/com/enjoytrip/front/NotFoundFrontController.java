@@ -2,34 +2,30 @@ package com.enjoytrip.front;
 
 import com.enjoytrip.controller.AttractionController;
 import com.enjoytrip.controller.NotFoundController;
-import com.enjoytrip.controller.UserController;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "FrontController", value = "/main")
-public class FrontController extends HttpServlet {
-    AttractionController attractionController;
+@WebServlet(name = "ErrorFrontController", value = "/notFound")
+public class NotFoundFrontController extends HttpServlet {
     NotFoundController notFoundController;
 
-    public FrontController() {
+    public NotFoundFrontController() {
 
         notFoundController = new NotFoundController();
-        attractionController=new AttractionController();
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String url=request.getRequestURI();
-        if(url.equals("/main")) {
-            attractionController.index(request, response);
+        if(url.equals("/notFound")) {
+            notFoundController.notFound(request, response);
         }else{
             notFoundController.error(request, response);
         }
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {

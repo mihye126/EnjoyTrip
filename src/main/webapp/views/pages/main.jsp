@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ include file="/views/components/head.jsp" %>
+<%@ include file="/views/components/navigation/head.jsp" %>
 
 <body>
-<%@ include file="/views/components/header.jsp" %>
+<%@ include file="/views/components/navigation/header.jsp" %>
 <main>
   <!-- Hero -->
   <section
@@ -45,7 +45,7 @@
         <c:forEach items="${categories}" var="category">
 
           <div class="col-6 col-lg-3 mb-5">
-            <a href="list.com?sidoCode=${category.code}" target="_blank"
+            <a href="/trip/list?sidoCode=${category.code}" target="_blank"
                class="page-preview scale-up-hover-2">
               <img class="shadow-lg rounded scale"
                    src="${category.img}"
@@ -76,7 +76,7 @@
             <p class="mb-4">Get started building your project using a collection of over
               1000 premium web
               components such as buttons, alerts, cards, modals, and many more</p>
-            <a href="list.com" class="btn btn-warning mt-2 animate-up-2">
+            <a href="/trip/list" class="btn btn-warning mt-2 animate-up-2">
 
               Show More
               <span class="me-1">
@@ -84,7 +84,7 @@
                                     </span>
             </a>
           </div>
-          <div class="col-lg-6 order-lg-1"><img src="./assets/img/sections/about-us-1.jpg"
+          <div class="col-lg-6 order-lg-1"><img src="/assets/img/sections/about-us-1.jpg"
                                                 alt="MapBox Leaflet.js Custom Integration Mockup">
           </div>
         </div>
@@ -111,17 +111,17 @@
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img class="d-block w-100"
-                       src="./assets/img/carousel/image-1.jpg"
+                       src="/assets/img/carousel/image-1.jpg"
                        alt="First slide">
                 </div>
                 <div class="carousel-item">
                   <img class="d-block w-100"
-                       src="./assets/img/carousel/image-2.jpg"
+                       src="/assets/img/carousel/image-2.jpg"
                        alt="Second slide">
                 </div>
                 <div class="carousel-item">
                   <img class="d-block w-100"
-                       src="./assets/img/carousel/image-3.jpg"
+                       src="/assets/img/carousel/image-3.jpg"
                        alt="Third slide">
                 </div>
               </div>
@@ -145,10 +145,10 @@
   <!-- End of Section -->
 
 </main>
+<%@ include file="/views/components/navigation/footer.jsp" %>
 
-<%@ include file="/views/components/script.jsp" %>
+<%@ include file="/views/components/navigation/script.jsp" %>
 
-<%@ include file="/views/components/footer.jsp" %>
 
 </body>
 

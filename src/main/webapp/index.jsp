@@ -1,3 +1,3 @@
 <%
-response.sendRedirect("index.com");
+response.sendRedirect("main");
 %>

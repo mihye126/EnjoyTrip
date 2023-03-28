@@ -20,7 +20,7 @@ public class HotPlaceController {
         service=new HotPlaceServiceImpl();
     }
     public void list(HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog-list.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog/list.jsp");
         request.setAttribute("hotPlaces", service.selectAll());
         System.out.println(service.selectAll());
 
@@ -35,7 +35,7 @@ public class HotPlaceController {
     }
 
     public void read(HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog-post.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog/read.jsp");
         String contentID=request.getParameter("contentID");
         request.setAttribute("hotPlace", service.selectOne(contentID));
 
@@ -54,7 +54,7 @@ public class HotPlaceController {
         int flag=service.delete(mobileCode);
 
         try {
-            response.sendRedirect("list.blog");
+            response.sendRedirect("/hotPlace/list");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -62,7 +62,7 @@ public class HotPlaceController {
     }
 
     public void insert(HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog-insert.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog/insert.jsp");
 
         HttpSession session= request.getSession();
         User user= (User) session.getAttribute("user");
@@ -70,7 +70,7 @@ public class HotPlaceController {
 
             try {
                 session.setAttribute("msg","로그인이 필요합니다.");
-                response.sendRedirect("sign-in.com");
+                response.sendRedirect("/account/login");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -104,7 +104,7 @@ public class HotPlaceController {
             user.getId(), user.getUsername()));
 
         try {
-            response.sendRedirect("list.blog");
+            response.sendRedirect("/hotPlace/list");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

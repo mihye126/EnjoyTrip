@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "HotPlaceFrontController", value = "*.blog")
+@WebServlet(name = "HotPlaceFrontController", value = "/hotPlace/*")
 public class HotPlaceFrontController extends HttpServlet {
     HotPlaceController controller;
     NotFoundController notFoundController;
@@ -21,17 +21,17 @@ public class HotPlaceFrontController extends HttpServlet {
     public void process(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String url = request.getServletPath();
+        String url = request.getRequestURI();
 
-        if(url.equals("/list.blog")){
+        if(url.equals("/hotPlace/list")){
             controller.list(request, response);
-        }else if(url.equals("/read.blog")){
+        }else if(url.equals("/hotPlace/read")){
             controller.read(request, response);
-        }else if(url.equals("/delete.blog")){
+        }else if(url.equals("/hotPlace/delete")){
             controller.delete(request, response);
-        }else if(url.equals("/insert.blog")){
+        }else if(url.equals("/hotPlace/insert")){
             controller.insert(request, response);
-        }else if(url.equals("/insertProcess.blog")){
+        }else if(url.equals("/hotPlace/insertProcess")){
             controller.insertProcess(request, response);
         }else {
             notFoundController.error(request, response);

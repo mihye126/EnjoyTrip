@@ -8,15 +8,6 @@ public class Notice {
     private String content;
 
 
-    public Notice() {
-    }
-
-    public Notice(String num, String wdate, String title) {
-        this.num = num;
-        this.wdate = wdate;
-        this.title = title;
-    }
-
     public Notice(String num, String wdate, String title, String content) {
         this.num = num;
         this.wdate = wdate;
@@ -54,5 +45,15 @@ public class Notice {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "Notice{" +
+            "num='" + num + '\'' +
+            ", wdate='" + wdate + '\'' +
+            ", title='" + title + '\'' +
+            ", content='" + content + '\'' +
+            '}';
     }
 }

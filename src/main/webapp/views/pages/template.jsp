@@ -3,16 +3,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ include file="/views/components/head.jsp" %>
+<%@ include file="/views/components/navigation/head.jsp" %>
 
 <body>
-<%@ include file="/views/components/header.jsp" %>
+<%@ include file="/views/components/navigation/header.jsp" %>
 <main>
 
 
 </main>
+<%@ include file="/views/components/navigation/footer.jsp" %>
 
-<%@ include file="/views/components/script.jsp" %>
+<%@ include file="/views/components/navigation/script.jsp" %>
 
 
 </body>

@@ -10,14 +10,14 @@ public class NotFoundController {
 
     public void error(HttpServletRequest request, HttpServletResponse response){
         try {
-            response.sendRedirect("/not-found.com");
+            response.sendRedirect("/notFound");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void notFound(HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/error.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/error/error.jsp");
         try {
             dispatcher.forward(request,response);
         } catch (ServletException e) {

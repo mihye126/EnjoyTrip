@@ -23,15 +23,17 @@ public class NoticeDAOImpl implements NoticeDAO {
         try {
             Connection con = util.getConnection();
             Statement stat = con.createStatement();
-            String q = "select num, wdate, title from board order by num desc";
+            String q = "select num, wdate, title,content from board order by num desc";
             ResultSet rs = stat.executeQuery(q);
 
             while (rs.next()) {
                 String num = rs.getString(1);
                 String wdate = rs.getString(2);
                 String title = rs.getString(3);
+                String content = rs.getString(4);
 
-                Notice n = new Notice(num, wdate, title);
+
+                Notice n = new Notice(num, wdate, title,content);
                 list.add(n);
             }
             con.close();
@@ -68,13 +70,16 @@ public class NoticeDAOImpl implements NoticeDAO {
     @Override
     public int insert(Notice n) {
         int x = 0;
+
         try {
             Connection con = util.getConnection();// pool에서 한개 빌려옴
-            String q = "insert into board(wdate,title,content)" + " values(sysdate(),?,?)";
+            String q = "insert into board(NAME,PASS,wdate,title,content)  values (?,?,sysdate(),?,?)";
 
             PreparedStatement stat = con.prepareStatement(q);
-            stat.setString(1, n.getTitle());
-            stat.setString(2, n.getContent());
+            stat.setString(1, "운영자");
+            stat.setString(2,  "0000");
+            stat.setString(3, n.getTitle());
+            stat.setString(4, n.getContent());
 
             x = stat.executeUpdate();
             con.close();

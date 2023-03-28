@@ -6,6 +6,7 @@ import com.enjoytrip.service.SidoService;
 import com.enjoytrip.service.SidoServiceImpl;
 import com.enjoytrip.vo.Attraction;
 import com.enjoytrip.vo.Category;
+import com.enjoytrip.vo.ContentType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,19 +26,10 @@ public class AttractionController {
 
     public void index(HttpServletRequest request, HttpServletResponse response){
         RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/main.jsp");
+
         request.setAttribute("sidos", sidoService.getSidos());
-
-        List<Category> categories =new ArrayList<>();
-        categories.add(new Category("1","Seoul"));
-        categories.add(new Category("39","Jeju"));
-        categories.add(new Category("6","Busan"));
-        categories.add(new Category("32","Sokcho"));
-        categories.add(new Category("31","Suwon"));
-        categories.add(new Category("38","Jeonju"));
-        categories.add(new Category("2","Incheon"));
-        categories.add(new Category("32","Gangneung"));
-
-        request.setAttribute("categories",categories);
+        request.setAttribute("categories",Category.getCategories());
+        request.setAttribute("contentTypes", ContentType.getContentType());
 
         try {
             dispatcher.forward(request,response);
@@ -50,12 +42,14 @@ public class AttractionController {
     }
 
     public void list(HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/list.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/trip/list.jsp");
+
         String sidoCode=request.getParameter("sidoCode");
         String contentTypeID=request.getParameter("contentTypeID");
         String pageNumber=request.getParameter("pageNumber");
 
         request.setAttribute("sidos", sidoService.getSidos());
+        request.setAttribute("contentTypes", ContentType.getContentType());
         request.setAttribute("attractions", attractionService.search(sidoCode,contentTypeID==null? "12" :contentTypeID));
 
         try {
@@ -69,7 +63,7 @@ public class AttractionController {
     }
 
     public void read(HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/read.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/trip/read.jsp");
         String contentID=request.getParameter("contentID");
         Attraction attraction=attractionService.selectOne(contentID);
 

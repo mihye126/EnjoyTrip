@@ -2,34 +2,34 @@ package com.enjoytrip.front;
 
 import com.enjoytrip.controller.AttractionController;
 import com.enjoytrip.controller.NotFoundController;
-import com.enjoytrip.controller.UserController;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "FrontController", value = "/main")
-public class FrontController extends HttpServlet {
+@WebServlet(name = "AttractionFrontController", value = "/trip/*")
+public class AttractionFrontController extends HttpServlet {
     AttractionController attractionController;
     NotFoundController notFoundController;
-
-    public FrontController() {
-
+    public AttractionFrontController() {
+        attractionController = new AttractionController();
         notFoundController = new NotFoundController();
-        attractionController=new AttractionController();
     }
-
     public void process(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String url=request.getRequestURI();
-        if(url.equals("/main")) {
-            attractionController.index(request, response);
-        }else{
+
+        String url = request.getRequestURI();
+
+        if(url.equals("/trip/list")) {
+            attractionController.list(request, response);
+        }
+        else if(url.equals("/trip/read")) {
+            attractionController.read(request, response);
+        }else {
             notFoundController.error(request, response);
         }
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
