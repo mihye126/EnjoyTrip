@@ -1,5 +1,6 @@
 package com.enjoytrip.front;
 
+
 import com.enjoytrip.controller.AttractionController;
 import com.enjoytrip.controller.NotFoundController;
 import javax.servlet.*;

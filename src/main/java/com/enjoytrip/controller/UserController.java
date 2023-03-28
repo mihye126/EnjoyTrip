@@ -55,12 +55,12 @@ public class UserController {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
 
-        String id=request.getParameter("id");
         String pw=request.getParameter("pass");
         String name=request.getParameter("username");
-
+        user.setPass(pw);
+        user.setUsername(name);
         //새로 받아온 데이터로 넘기기
-        int x = service.updateUser(user, id, pw, name);
+        int x = service.updateUser(user);
 
         try {
             response.sendRedirect("/account/info");

@@ -5,7 +5,7 @@ import com.enjoytrip.vo.User;
 public interface UserService {
     User selectOne(String id, String pw);
 
-    int updateUser(User user, String pid, String ppw, String pname);
+    int updateUser(User user);
     int updatePassword(String id, String newpass);
 
     int delete(User user);

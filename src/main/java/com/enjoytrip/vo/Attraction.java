@@ -1,7 +1,5 @@
 package com.enjoytrip.vo;
 
-import java.util.Objects;
-
 public class Attraction {
 
     String contentID;

@@ -1,8 +1,7 @@
 package com.enjoytrip.front;
 
-
-import com.enjoytrip.controller.*;
-
+import com.enjoytrip.controller.NotFoundController;
+import com.enjoytrip.controller.UserController;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

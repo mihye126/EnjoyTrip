@@ -2,7 +2,6 @@ package com.enjoytrip.front;
 
 import com.enjoytrip.controller.HotPlaceController;
 import com.enjoytrip.controller.NotFoundController;
-import java.io.UnsupportedEncodingException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
