@@ -6,6 +6,7 @@ import com.enjoytrip.vo.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.servlet.http.HttpSession;
 
 public class UserDAOImpl implements UserDAO{
     DBUtil util;
@@ -80,6 +81,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public int updatePassword(String id, String newpass) {
+        int result=0;
         try {
             Connection con = util.getConnection();//pool에서 한개 빌려옴
 
@@ -88,20 +90,13 @@ public class UserDAOImpl implements UserDAO{
             stat.setString(1, newpass);
             stat.setString(2, id);
 
-            int result=stat.executeUpdate();
-            if(result==1){
-                System.out.println("비밀번호 수정 완료!");
+            result=stat.executeUpdate();
 
-            }else{
-                System.out.println("비밀번호 수정 실패!");
-                result=0;
-            }
-            return result;
 
         }catch(Exception e) {
             e.printStackTrace();
         }
-        return 0;
+        return result;
     }
 
 
@@ -135,8 +130,6 @@ public class UserDAOImpl implements UserDAO{
             String id= user.getId();
             String pass=user.getPass();
             String name=user.getUsername();
-
-            System.out.println(user);
 
             String checkq = "select id from user where id = ?";
             PreparedStatement stat = con.prepareStatement(checkq);

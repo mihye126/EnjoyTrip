@@ -71,7 +71,6 @@ public class NoticeController {
     public void insertProcess(HttpServletRequest request, HttpServletResponse response) {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        System.out.println(content);
         Notice notice = new Notice(null,null, title, content);
         service.insert(notice);
 

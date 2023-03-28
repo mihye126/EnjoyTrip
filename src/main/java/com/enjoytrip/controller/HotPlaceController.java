@@ -22,8 +22,6 @@ public class HotPlaceController {
     public void list(HttpServletRequest request, HttpServletResponse response){
         RequestDispatcher dispatcher= request.getRequestDispatcher("/views/pages/blog/list.jsp");
         request.setAttribute("hotPlaces", service.selectAll());
-        System.out.println(service.selectAll());
-
         try {
             dispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -93,7 +91,6 @@ public class HotPlaceController {
         String title=request.getParameter("title");
         String address=request.getParameter("address");
         String firstImage=request.getParameter("firstImage");
-        System.out.println(firstImage);
         String overview=request.getParameter("overview");
 
         HttpSession session= request.getSession();

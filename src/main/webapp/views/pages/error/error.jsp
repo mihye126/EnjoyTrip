@@ -69,7 +69,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center text-dark d-flex align-items-center justify-content-center">
-          <div><a href="./../index.html"><img class="img-fluid w-50"
+          <div><a href="/main"><img class="img-fluid w-50"
                                               src="/assets/img/illustrations/404.svg"
                                               alt="girl illustration"></a>
             <h1 class="mt-4">404 Page <span class="fw-bolder text-primary">not found</span></h1>
