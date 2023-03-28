@@ -171,7 +171,7 @@ public class UserController {
 
     public void updatePassword(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
-        String newPassword=request.getParameter("newPassword");
+        String newPassword=request.getParameter("newpass");
         String passConfirm=request.getParameter("passConfirm");
 
         int modiflag=0;
