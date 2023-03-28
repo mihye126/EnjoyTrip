@@ -25,7 +25,7 @@ public class AttractionDAOImpl implements AttractionDAO{
 
             Connection connection= util.getConnection();
             String q="select info.content_id contentID, content_type_id, title, concat(addr1,' ',addr2) address, tel, first_image, sido_code,  latitude, longitude, overview "
-                + "from attraction_info info join attraction_description `description` "
+                + "from attraction_info info left join attraction_description `description` "
                 + "on info.content_id= `description`.content_id  where info.content_id=?";
             PreparedStatement statement=connection.prepareStatement(q);
             statement.setString(1,contentID);
@@ -61,7 +61,7 @@ public class AttractionDAOImpl implements AttractionDAO{
             attractions.clear();
 
             String q="select info.content_id contentID, content_type_id, title, concat(addr1,' ',addr2) address, tel, first_image, sido_code,  latitude, longitude, overview"
-                + " from attraction_info info join attraction_description `description` "
+                + " from attraction_info info left join attraction_description `description` "
                 + "on info.content_id= `description`.content_id where sido_code=? and content_type_id=? ";
             PreparedStatement statement=connection.prepareStatement(q);
             statement.setString(1,sidoCode);
