@@ -7,21 +7,6 @@ public class User {
     private String num;
     private String bday;
 
-
-    public User() {
-    }
-
-    public User(String id, String pass) {
-        this.id = id;
-        this.pass = pass;
-    }
-
-    public User(String id, String pass, String username) {
-        this.id = id;
-        this.pass = pass;
-        this.username = username;
-    }
-
     public User(String id, String pass, String username, String num, String bday) {
         this.id = id;
         this.pass = pass;

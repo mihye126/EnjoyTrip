@@ -123,13 +123,13 @@ public class UserController {
         String remember = request.getParameter("remember");//checkbox
 
 
-        User user = service.selectOne(id, pass);
-        boolean flag = service.check(user);
+
+        boolean flag = service.check(id, pass);
         String url = "/main";//ok
         HttpSession session = request.getSession();
         if (flag) {// 로그인 성공
             // 세션 처리
-
+            User user = service.selectOne(id, pass);
             session.setAttribute("user", user);
 
             //cookie 처리---------------
@@ -220,7 +220,7 @@ public class UserController {
 
         HttpSession session = request.getSession();
 
-        User user = new User(id, pass, name);
+        User user = new User(id, pass, name, null, null) ;
         int flag = service.register(user);
         String url = "/main";//ok
 

@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean check(User user) {
-        return dao.check(user);
+    public boolean check(String id, String pass) {
+        return dao.check(id,pass);
     }
 }

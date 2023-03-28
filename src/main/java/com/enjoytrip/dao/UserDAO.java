@@ -8,6 +8,6 @@ public interface UserDAO {
     int updatePassword(String id, String newPassword);
     int delete(User user);
     int register(User user);
-    boolean check(User user);
+    boolean check(String id, String pass);
 
 }

@@ -12,5 +12,5 @@ public interface UserService {
 
     int register(User user);
 
-    boolean check(User user);
+    boolean check(String id, String pass);
 }

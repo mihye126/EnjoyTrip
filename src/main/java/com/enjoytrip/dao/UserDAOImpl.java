@@ -109,15 +109,15 @@ public class UserDAOImpl implements UserDAO{
 
 
     @Override
-    public boolean check(User user) {
+    public boolean check(String id, String pass) {
         boolean flag = false;
         try {
             Connection con = util.getConnection();//pool에서 한개 빌려옴
             String q = "select id from user where id = ? and pw = ?";
             PreparedStatement stat = con.prepareStatement(q);
 
-            stat.setString(1, user.getId());
-            stat.setString(2, user.getPass());
+            stat.setString(1, id);
+            stat.setString(2, pass);
 
             ResultSet rs = stat.executeQuery();
 
